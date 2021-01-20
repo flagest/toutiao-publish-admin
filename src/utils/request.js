@@ -11,6 +11,23 @@ const request = axios.create({
 })
 
 // 请求拦截器
+request.interceptors.request.use(
+  // 任何请求都会经过这里
+  function (config) {
+    console.log('我来了姐姐')
+    const user = JSON.parse(window.localStorage.getItem('user'))
+    if (user) {
+      config.headers.Authorization = `Bearer ${user.token}`
+    }
+    // config当前请求相关配置对象
+    console.log(config)
+    return config
+  },
+  // 请求失败会经过这里
+  function (error) {
+     return Promise.reject(error)
+  }
+)
 
 // 响应拦截器
 

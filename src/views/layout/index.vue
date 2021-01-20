@@ -1,12 +1,27 @@
 <template>
   <el-container class="layout-container">
-    <el-aside class="aside" width="200px">
-      <app-aside class="aside-menu"/>
+    <el-aside class="aside" width="auto">
+      <app-aside
+        class="aside-menu"
+        :is-collapse="isCollapse"/>
     </el-aside>
     <el-container>
       <el-header class="header">
         <div>
-          <i class="el-icon-s-fold"></i>
+          <!--
+          class 样式处理
+          {
+          css 类名：布尔值
+          }
+          true：作用类名
+          false： 不作用类名
+          -->
+          <i :class="{
+          'el-icon-s-fold': isCollapse,
+          'el-icon-s-unfold': !isCollapse
+          }"
+             @click="isCollapse = !isCollapse"
+          />
           <span class="shop-name">张小姐传媒股份有限公司</span>
         </div>
         <el-dropdown>
@@ -41,7 +56,8 @@
         props: {},
         data () {
             return {
-              user: {}
+              user: {},
+              isCollapse: false // 默认是展示左边菜单栏
             }
         },
         computed: {},
