@@ -33,6 +33,10 @@
           </div>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>设置</el-dropdown-item>
+            <!--
+              组件默认是不识别原生事件的，除非内部做了处理
+              监听某个组件的原生事件监听不到的时候就用native
+            -->
             <el-dropdown-item
               @click.native="onLogout"
             >退出</el-dropdown-item>

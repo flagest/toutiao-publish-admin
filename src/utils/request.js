@@ -20,7 +20,6 @@ request.interceptors.request.use(
       config.headers.Authorization = `Bearer ${user.token}`
     }
     // config当前请求相关配置对象
-    console.log(config)
     return config
   },
   // 请求失败会经过这里

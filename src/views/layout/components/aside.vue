@@ -48,9 +48,7 @@
         components: {},
         props: ['is-collapse'],
         data () {
-            return {
-              isCollapse: false
-            }
+            return {}
         },
         computed: {},
         watch: {},
