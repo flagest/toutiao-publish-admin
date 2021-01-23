@@ -7,8 +7,8 @@
     default-active="/"
     background-color="#002033"
     text-color="#fff"
-    active-text-color="#ffd04b"
     router
+    active-text-color="#ffd04b"
     :collapse="isCollapse"
   >
     <el-menu-item index="/">
