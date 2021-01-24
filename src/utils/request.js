@@ -3,11 +3,23 @@
  *基于axios封装请求模块
  */
 import axios from 'axios'
-
+import JsonBigInt from 'json-bigint'
 // 创建一个axios实例，说白了就是复制一个oxious
 // 我们通过一个实例发请求，把需要的配置配个这个实例
 const request = axios.create({
-  baseURL: 'http://api-toutiao-web.itheima.net/' // 请求的基础路径
+  baseURL: 'http://api-toutiao-web.itheima.net/', // 请求的基础路径
+  // 定制后端返回原始数据
+  // 参数data就是后端返回原始数据，(未经处理的JSON格式字符串)
+  transformRequest: [function (data, headers) {
+    // Do whatever you want to transform the data
+    // axios默认是使用JOSN.parse来转换原始数据
+    // return JSON.parse(data)
+    try {
+      return JsonBigInt.parse(data)
+    } catch (e) {
+      return data
+    }
+  }]
 })
 
 // 请求拦截器

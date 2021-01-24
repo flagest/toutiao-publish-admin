@@ -16,3 +16,23 @@ export const getArticles = params => {
      params
    })
 }
+
+/*
+ * 获取频道接口
+ */
+export const getChannels = params => {
+  return request({
+    method: 'GET',
+    url: '/mp/v1_0/channels',
+    params
+  })
+}
+/*
+ *删除接口
+ */
+export const deleteArticle = articleId => {
+  return request({
+    method: 'DELETE',
+    url: `/mp/v1_0/articles/${articleId}`
+  })
+}

@@ -6,6 +6,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 // 加载全局样式
 import './style/index.less'
+// 加载bigint
+/*
+import JsonBigInt from 'json-bigint'
+const str = '{"id":1352872864734248960}'
+const strBigInt = JsonBigInt.parse(str).id.toString()
+console.log(strBigInt, 'strBigInt')
+*/
 
 // 全局注册Element-ui组件
 Vue.use(ElementUI)
