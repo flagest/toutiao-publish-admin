@@ -22,13 +22,12 @@
             </el-radio-group>
           </el-form-item>
           <el-form-item label="频道">
-            <el-select v-model="channelId" placeholder="请选择频道">
+            <el-select v-model="channelId" clearable placeholder="请选择频道">
               <el-option
                 v-for="(channle,index) in channels"
                 :key="index"
                 :label="channle.name"
                 :value="channle.id"
-                clearable
               ></el-option>
             </el-select>
           </el-form-item>
@@ -82,7 +81,7 @@
                 :src="scope.row.cover.images[0]"
                 :preview-src-list="scope.row.cover.images">
                 <div slot="error" class="image-slot">
-                  <i class="el-icon-picture-outline">   </i>
+                  <i class="el-icon-picture-outline"></i>
                 </div>
               </el-image>
               <el-image
@@ -138,7 +137,8 @@
                 size="mini"
                 circle
                 icon="el-icon-edit"
-                @click="handleEdit(scope.$index, scope.row)"
+                type="primary"
+                @click="$router.push('/publish?id='+scope.row.id.toString())"
               ></el-button>
               <el-button
                 size="mini"
